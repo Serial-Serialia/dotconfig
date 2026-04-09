@@ -1,9 +1,0 @@
-[submodule "hypr"]
-	path = hypr
-	url = https://github.com/Serial-Serialia/hypr.git
-[submodule "nvim"]
-	path = nvim
-	url = https://github.com/Serial-Serialia/nvim.git
-[submodule "waybar"]
-	path = waybar
-	url = https://github.com/Serial-Serialia/waybar.git
