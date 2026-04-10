@@ -2,7 +2,7 @@
 
 echo "Installing Hyprland and applets"
 
-pacman -S hyprland rofi hyprpolkitagent hyprpaper thunar mako xdg-desktop-portal-hyprland waybar wl-clipboard hyprlock power-profiles-daemon --noconfirm
+pacman -S hyprland rofi hyprpolkitagent hyprpaper thunar mako xdg-desktop-portal-hyprland waybar wl-clipboard hyprlock power-profiles-daemon polkit hyprshutdown --noconfirm
 sudo ln -s $(which kitty) /usr/bin/xdg-terminal-exec
 
 echo "Installing sddm and enabling it"
