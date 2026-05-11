@@ -30,6 +30,7 @@ configuration {
 }
 
 window {
+  border-radius: 30px;
   width: 45%;
   height: 60%;
 }

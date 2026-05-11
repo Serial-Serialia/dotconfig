@@ -122,6 +122,7 @@ return {
 			"html-lsp",
 			"roslyn",
 			"emmet-language-server",
+			"clangd",
 		})
 
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -186,5 +187,8 @@ return {
 
 		vim.lsp.config("basedpyright", {})
 		vim.lsp.enable("basedpyright")
+
+		vim.lsp.config("clangd", {})
+		vim.lsp.enable("clangd")
 	end,
 }

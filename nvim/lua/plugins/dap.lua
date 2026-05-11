@@ -41,6 +41,7 @@ return {
 				ensure_installed = {
 					"debugpy",
 					"netcoredbg",
+					"codelldb",
 				},
 			},
 			-- mason-nvim-dap is loaded when nvim-dap loads
@@ -69,6 +70,7 @@ return {
 	    { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
 	    { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
 	},
+	opts = function() end,
 	config = function()
 		local dap = require("dap")
 		if not dap.adapters["netcoredbg"] then
@@ -96,6 +98,41 @@ return {
 					},
 				}
 			end
+		end
+		if not dap.adapters["codelldb"] then
+			dap.adapters.cppdbg = {
+				id = "cppdbg",
+				type = "executable",
+				command = "/home/hyprconfig/.vscode/extensions/ms-vscode.cpptools-1.31.4-linux-x64/debugAdapters/bin/OpenDebugAD7",
+			}
+		end
+		for _, lang in ipairs({ "c", "cpp" }) do
+			dap.configurations[lang] = {
+				{
+					name = "Launch file",
+					type = "cppdbg",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					cwd = "${workspaceFolder}",
+					stopAtEntry = false,
+					mIMode = "lldb",
+					miDebuggerPath = "/usr/bin/gdb",
+				},
+				{
+					name = "Attach to gdbserver :1234",
+					type = "cppdbg",
+					request = "launch",
+					MIMode = "gdb",
+					MiDebuggerServerAddress = "localhost:1234",
+					MiDebuggerPath = "/usr/bin/gdb",
+					cwd = "${workspaceFolder}",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+				},
+			}
 		end
 	end,
 }

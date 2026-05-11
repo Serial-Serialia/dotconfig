@@ -9,7 +9,7 @@ echo "Installing sddm and enabling it"
 
 pacman -S sddm --noconfirm
 
-systemctl enabel sddm.service
+systemctl enable sddm.service
 
 echo "Installing nvim and programing languages"
 
@@ -26,3 +26,7 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 echo "Installing hyprcap"
 
 yay -S hyprcap
+
+echo "Moving repositories config files to .config"
+
+mv ./*/ ~/.config/
