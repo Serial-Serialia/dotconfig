@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-	background-color: rgba(67, 69, 130, 1);
+	background-color: rgba(67, 69, 130, 0.9);
 	color: rgba(227, 198, 137, 1);
 	transition-property: background-color;
 	transition-duration: .5s;
@@ -176,7 +176,7 @@ label:focus {
 }
 
 #tray {
-	background-color: rgba(67, 69, 130, 1);
+	background-color: rgba(67, 69, 130, 0.9);
 }
 
 #tray>.passive {

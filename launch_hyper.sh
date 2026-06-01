@@ -13,7 +13,7 @@ systemctl enable sddm.service
 
 echo "Installing nvim and programing languages"
 
-pacman -S python nodejs npm aspnet-targeting-pack dotnet nvim python-pip --noconfirm
+pacman -S python nodejs npm aspnet-targeting-pack dotnet nvim python-pip dbeaver jdk-openjdk --noconfirm
 
 echo "Installing fonts and icons"
 
@@ -27,6 +27,10 @@ echo "Installing hyprcap"
 
 yay -S hyprcap
 
+echo "Creating Mysql docker container"
+
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_USER=user -e MYSQL_PASSWORD=password -p 3306:3306 -d mysql:latest
+
 echo "Moving repositories config files to .config"
 
-mv ./*/ ~/.config/
+cp ./*/ ~/.config/

@@ -1,4 +1,4 @@
-vim.loader.enable(true)
 require("config.settings")
 require("config.remaps")
 require("config.autocomands")
+require("config.lazy")
